@@ -199,7 +199,7 @@ def tell_me_about():
             speak(content)
         speak("Đây là nội dung tôi vừa tìm được cảm ơn bạn đã lắng nghe")
     except:
-        speak(f"{name} không định nghĩa được thuật ngữ của bạn !!!")
+        speak("không định nghĩa được thuật ngữ của bạn !!!")
 
 
 def baothuc():
