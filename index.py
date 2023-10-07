@@ -332,12 +332,12 @@ def kechuyen():
 # global robot_name
 # robot_name = "ly hanh"
 # global name
-# name = get_text()
+name = os.getlogin()
 n = 1
 while n:
     command = recognize_speech()
     if "trợ lý ảo" in command:
-        speak(f'Xin chào bạn {os.getlogin()}.')
+        speak(f'Xin chào bạn name.')
         speak(f'Bạn cần trợ lý ảo giúp gì không ạ ?')
         while True:
             text = get_text()
