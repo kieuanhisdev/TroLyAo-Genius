@@ -43,7 +43,7 @@ class VoiceToTextApp:
         self.text_widget = tk.Text(
             self.frame, bg='#c6f4be', width=50, height=14, font='Inter 16')
         self.text_widget.place(relx=0.5, rely=0.52, anchor=tk.CENTER)
-        img = Image.open(r"Image\theme1\Ellipse 1.png")
+        img = Image.open(r"Image\playvoice.png")
         img = img.resize((50, 50), Image.LANCZOS)
         self.button_img = ImageTk.PhotoImage(img)
         self.button = tk.Button(root, image=self.button_img, command=self.startTask,
@@ -420,6 +420,7 @@ root = tk.Tk()
 root.geometry('850x650+320+90')
 root.resizable(width=False, height=False)
 root.title('Genius')
+root.iconbitmap(r'Image\theme1\ai.ico')
 app = VoiceToTextApp(root)
 root.after(1000, app.startTask1)
 root.mainloop()
