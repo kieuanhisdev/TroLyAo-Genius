@@ -7,7 +7,6 @@ import wikipedia
 import datetime
 import re
 import requests
-import urllib.request as urllib2
 from time import strftime
 from gtts import gTTS
 import pygame
@@ -15,6 +14,8 @@ from PIL import Image, ImageTk
 import tkinter as tk
 import pyttsx3
 import threading
+from tkinter import ttk
+
 
 os.environ['SDL_VIDEODRIVER'] = 'dummy'  # Tắt thông báo Pygame
 
@@ -41,7 +42,7 @@ class VoiceToTextApp:
         self.frame = tk.Frame(root, bg='#cafafe')
         self.frame.pack(fill='both', expand=True)
         self.text_widget = tk.Text(
-            self.frame, bg='#c6f4be', width=50, height=14, font='Inter 16')
+            self.frame, bg='#c6f4be', width=50, height=14, font='Inter 16',  borderwidth=2, relief=tk.SOLID)
         self.text_widget.place(relx=0.5, rely=0.52, anchor=tk.CENTER)
         img = Image.open(r"Image\playvoice.png")
         img = img.resize((50, 50), Image.LANCZOS)
@@ -49,7 +50,45 @@ class VoiceToTextApp:
         self.button = tk.Button(root, image=self.button_img, command=self.startTask,
                                 borderwidth=0, highlightcolor='black', bg='#cafafe', highlightbackground='black')
         self.button.place(x=400, y=535, width=50, height=50)
-        self.sb()
+
+    #     self.create_color_change_button()
+    #     self.huong_dan_su_dung_button()
+
+        self.lb = tk.Label(self.frame, text='TRỢ LÝ ẢO GENIUS',
+                           font='Inter 28 bold', fg='black', bg='#cafafe')
+        self.lb.place(relx=0.5, rely=0.15, anchor=tk.CENTER)
+
+    # def huong_dan_su_dung_button(self):
+    #     color_button = tk.Button(
+    #         self.frame, text="Hưỡng dẫn sử dụng", command=self.open_file, borderwidth=1, relief=tk.SOLID)
+    #     color_button.place(x=10, y=600)
+
+    # def open_file(self):
+
+    #     self.open('D:\CHATBOX\CHATBOX\TroLyAo-Genius\Linux K64_Sesion_6_Progress and scheduling_2.pdf')
+
+    # # nút đổi hình nền
+
+    # def create_color_change_button(self):
+    #     color_button = tk.Button(
+    #         self.frame, text="Thay đổi giao diện", command=self.change_background_color, borderwidth=1, relief=tk.SOLID)
+    #     color_button.place(x=10, y=10)
+
+    # def change_background_color(self):
+    #     new_color = self.generate_random_color()
+    #     new_color1 = self.generate_random_color()
+
+    #     self.lb.config(bg=new_color)
+    #     self.frame.config(bg=new_color)
+    #     self.text_widget.config(bg=new_color1)
+    #     self.button.config(bg=new_color)
+    # # hàm ramdom ngẫu nhiền màu nền
+
+    # def generate_random_color(self):
+    #     import random
+    #     color = "#{:02x}{:02x}{:02x}".format(random.randint(
+    #         0, 255), random.randint(0, 255), random.randint(0, 255))
+    #     return color
 
     def greet(self):
         default = 'Chào bạn, tôi là trợ lý Genius!!! Tôi có thể giúp gì?'
@@ -391,6 +430,10 @@ class VoiceToTextApp:
                         self.demnguoc()
                     elif 'kể' in text or 'kể chuyện' in text or 'chuyện' in text or 'buồn' in text or 'chán' in text or 'nói' in text:
                         self.kechuyen()
+                    elif "mở nhạc" in text:
+                        import mp3
+                    elif "hỗ trợ" in text:
+                        import help
                     elif "kết thúc" in text:
                         n = 0
                         self.root.quit()
@@ -401,11 +444,6 @@ class VoiceToTextApp:
 
     def execute_custom_function1(self):
         self.greet()
-
-    def sb(self):
-        lb = tk.Label(self.root, text='TRỢ LÝ ẢO GENIUS',
-                      font='Inter 28 bold', fg='black', bg='#cafafe')
-        lb.place(relx=0.5, rely=0.15, anchor=tk.CENTER)
 
     def startTask(self):
         thread = threading.Thread(target=self.execute_custom_function)
