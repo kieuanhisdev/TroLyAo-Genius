@@ -161,7 +161,7 @@ def dung_nhac():
 window = tk.Tk()
 window.title("Ứng dụng Nghe Nhạc")
 window.geometry("600x500")
-
+# window.configure(bg="#6BB5FF")
 # Tạo nhãn cho tiêu đề trình phát nhạc
 l_music_player = tk.Label(window, text="Genius Music",
                           font=("TkDefaultFont", 30, "bold"))
@@ -212,9 +212,9 @@ btn_next = ctk.CTkButton(btn_frame, text=">", command=bai_tiep_theo, width=50,
 btn_next.pack(side=tk.LEFT, padx=5)
 
 
-btn_next = ctk.CTkButton(window, text="tắt nhạc", command=tat_nhac, width=50,
-                         font=("TkDefaultFont", 18))
-btn_next.pack(side=tk.LEFT, padx=5)
+# btn_next = ctk.CTkButton(window, text="tắt nhạc", command=tat_nhac, width=50,
+#                          font=("TkDefaultFont", 18))
+# btn_next.pack(side=tk.LEFT, padx=5)
 
 # Tạo thanh tiến trình để chỉ ra tiến trình của bài hát hiện tại
 pbar = Progressbar(window, length=300, mode="determinate")

@@ -18,25 +18,25 @@ def speak(text):
 
 
 def tc():
-    speak('Tạo hàm hướng dẫn trò chuyện')
+    speak('để sử dụng tính năng trò chuyện bạn cần nói có các từ khóa sau: chào trợ lý, kể chuyện')
 
 # Tạo hàm hướng dẫn tìm kiếm thông tin
 
 
 def search():
-    speak('Tạo hàm hướng dẫn tìm kiếm thông tin')
+    speak('để sử dụng tính năng tìm kiếm thông tin bạn cần nói cái từ khóa sau: hiện tại + giời hoặc ngày, thời tiết,định nghĩa')
 
 # Tạo hàm hướng dẫn đặt lịch hẹn
 
 
 def dl():
-    speak('Tạo hàm hướng dẫn đặt lịch hẹn')
+    speak('để sử dụng tính năng đặt lịch hẹn bạn cần nói các từ khóa sau: đặt báo thức + thời gian, đếm ngược + thời gian')
 
 # Tạo hàm hướng dẫn sử dụng Genius Music
 
 
 def music():
-    speak('Tạo hàm hướng dẫn sử dụng Genius Music')
+    speak('để sử dụng tính năng phát nhạc bạn cần nói: mở nhạc')
 
 
 # Setup app
@@ -52,7 +52,6 @@ app.resizable(False, False)
 lb = tk.Label(app, text='Genius Help', font='Lato 24 bold',
               background='#fefbed', fg='#4b4b4b')
 lb.place(relx=0.3, rely=0.11)
-
 
 
 # Tạo Button
